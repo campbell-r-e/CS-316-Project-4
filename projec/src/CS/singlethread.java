@@ -1,12 +1,12 @@
-
+package CS;
 
 import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class singlethread {
-private static final long totalPoints =1000000000000000000L;
-static int Pointsincirlce=0;
+private static final long totalPoints =2000000000L;
+static int pointsinCircle =0;
 public static void main(String[] args) {
     Instant start= Instant.now();
   
@@ -16,16 +16,16 @@ public static void main(String[] args) {
       double distance = Math.sqrt((x-1)*(x-1)+(y-1)*(y-1));
       if(distance<=1){
        
-        Pointsincirlce++;
+        pointsinCircle++;
     }
     
 }
 
-double pi = Pointsincirlce/(double)totalPoints*4;
+double pi = pointsinCircle /(double)totalPoints*4;
 Instant finish = Instant.now();
 long TimeElapsed = Duration.between(start, finish).toMillis();
 System.out.println("Pi="+pi);
-System.out.println("Time Elapsed"+TimeElapsed);
+System.out.println("Time Elapsed: "+TimeElapsed);
 }
 
 }
