@@ -6,8 +6,8 @@ import java.time.Duration;
 import java.time.Instant;
 public class multithread{
 
-    private static final long TOTAL_POINTS=100_000_000_000_000_000L;
-    private static final int THREAD_COUNT=8;
+    private static final long TOTAL_POINTS=100_000_000_000_000L;
+    private static final int THREAD_COUNT=20;
     static class PiCalc implements Callable<Long>{
         private final long points;
         private Place time;
