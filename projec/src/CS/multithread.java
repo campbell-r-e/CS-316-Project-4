@@ -6,14 +6,14 @@ import java.time.Duration;
 import java.time.Instant;
 public class multithread{
 
-    private static final int TOTAL_POINTS=100_000_000;
-    private static final int THREAD_COUNT=10;
+    private static final long TOTAL_POINTS=100_000_000_000_000_000L;
+    private static final int THREAD_COUNT=8;
     static class PiCalc implements Callable<Long>{
-        private final int points;
+        private final long points;
         private Place time;
        
-        public PiCalc(int points,Place time) {
-            this.points=points;
+        public PiCalc(long pointsInThread,Place time) {
+            this.points=pointsInThread;
             this.time = time;
 
         }
@@ -55,7 +55,7 @@ public class multithread{
     public static void main(String[] args) throws Exception {
        
         ExecutorService executor=Executors.newFixedThreadPool(THREAD_COUNT);
-        int pointsInThread=TOTAL_POINTS/THREAD_COUNT;
+        long pointsInThread=TOTAL_POINTS/THREAD_COUNT;
         Future <Long>[]results=new Future[THREAD_COUNT];
         Place timeingPlace = new Place();
         for(int i=0;i<THREAD_COUNT;i++){
